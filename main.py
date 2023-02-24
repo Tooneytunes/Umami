@@ -34,10 +34,10 @@ with open('recipe.txt', 'a', encoding='utf-8') as f:
         ingredients = [f"{unit.text} {ingredient.text}" for unit, ingredient in zip(ingredient_units, ingredients_list)]
 
         # Append this recipe to the file
-        f.write(f"Gerecht {idx + 1}: {recipe_title}\nGehaald van: {url}{amount}\n\nIngredienten:\n")
+        f.write(f"Gerecht: {recipe_title}\nGehaald van: {url}{amount}\n\nIngredienten:\n")
+        print(f"Gerecht: {recipe_title} has been added")
         for idx_ingredients, ingredient in enumerate(ingredients):
             f.write(f"- {ingredient}\n")
-
             # Make sure that there is an enter at the end of the ingredient list
             if idx_ingredients == len(ingredients) - 1:
                 f.write("\n")
