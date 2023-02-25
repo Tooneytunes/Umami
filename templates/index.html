@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+</head>
+<body>
+
+<form action="">
+  <label for="search_ingredient">Ingrediënt</label><br>
+  <input type="text" id="search_ingredient" name="search_ingredient" placeholder="{{ search_ingredient }}"><br>
+</form>
+
+<h1>Recipes found</h1>
+{% for recipe in recipes %}
+<h2>{{recipe.title}}</h2>
+<a href="{{recipe.url}}" target="_blank">Dit recept kan je hier vinden</a>
+<p>Dit recept is voor <i>{{ recipe.amount }}</i></p>
+<p>
+    {% for instruction in recipe.instructions %}
+    {{ instruction }}<br />
+    {% endfor %}
+</p>
+{% else %}
+<p>Nothing has been found</p>
+{% endfor %}
+</body>
+</html>
